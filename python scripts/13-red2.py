@@ -30,7 +30,7 @@ while True:
 			sleep(0.00056)
 
 	##COMMAND
-	command = "0000001011111101"
+	command = "0000101011110101"
 
 	for digit in command:
 		GPIO.output(26, 0)
@@ -47,6 +47,6 @@ while True:
 	GPIO.output(26, 1)
 	sleep(0.0045)
 
-	print('power')
+	print('red2')
 	break
 #;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

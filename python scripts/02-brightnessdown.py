@@ -9,32 +9,6 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(26, GPIO.OUT)
 #;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#Variables
-##START 
-##	GPIO.output(26, 0)
-##	sleep(0.009)
-##	GPIO.output(26, 1)
-##	sleep(0.0045)
-
-##0BIT
-##	GPIO.output(26, 0)
-##	sleep(0.00056)
-##	GPIO.output(26, 1)
-##	sleep(0.00056)
-
-##1BIT
-##	GPIO.output(26, 0)
-##	sleep(0.00056)
-##	GPIO.output(26, 1)
-##	sleep(0.00169)
-
-##STOP
-##	GPIO.output(26, 0)
-##	sleep(0.009)
-##	GPIO.output(26, 1)
-##	sleep(0.0045)
-
-#;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #Main Code
 while True:
 	##START BIT
@@ -43,177 +17,36 @@ while True:
 	GPIO.output(26, 1)
 	sleep(0.0045)
 	
-	##ADDRESS 00000000
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
+	##ADDRESS
+	address = "0000000011111111"
 
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
+	for digit in address:
+		GPIO.output(26, 0)
+		sleep(0.00056)
+		GPIO.output(26, 1)
+		if int(digit):
+			sleep(0.00169)
+		else:
+			sleep(0.00056)
 
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
+	##COMMAND
+	command = "1011101001000101"
 
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	##INVERT ADDRESS 11111111
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	##COMMAND 10111010
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)	
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	##INVERT COMMAND 01000101
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)	
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00056)
-
-	GPIO.output(26, 0)
-	sleep(0.00056)
-	GPIO.output(26, 1)
-	sleep(0.00169)
+	for digit in command:
+		GPIO.output(26, 0)
+		sleep(0.00056)
+		GPIO.output(26, 1)
+		if int(digit):
+			sleep(0.00169)
+		else:
+			sleep(0.00056)
 	
-
 	##STOP BIT
 	GPIO.output(26, 0)
 	sleep(0.009)
 	GPIO.output(26, 1)
-	sleep(0.0045)	
-		
+	sleep(0.0045)
+
 	print('brightness -')
 	break
 #;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
